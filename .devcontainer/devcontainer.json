@@ -1,0 +1,26 @@
+{
+  "name": "Vue-Notus",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "NODE_ENV": "development"
+    }
+  },
+  "forwardPorts": [8080],
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "ecmel.vscode-html-css",
+    "esbenp.prettier-vscode",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin"
+  ],
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "bash"
+      }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash"
+  }
+}
