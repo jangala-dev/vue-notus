@@ -1,7 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
-// styles
-
-// mouting point for the whole app
+import store from "@/store/index";
 
 // layouts
 import Admin from "@/layouts/Admin.vue";
@@ -63,6 +61,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+// Needed to reroute to login if user not logged in
+router.beforeEach((to, from, next) => {
+  if (to.path !== "/auth/login" && !store.getters.isLoggedIn) {
+    next({ path: "/auth/login" });
+  } else if (to.path === "/auth/login" && store.getters.isLoggedIn) {
+    next({ name: "/admin/dashboard" });
+  } else {
+    next();
+  }
 });
 
 export default router;
