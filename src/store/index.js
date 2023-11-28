@@ -1,3 +1,4 @@
+import router from '@/router';
 import { createStore } from "vuex";
 
 export default createStore({
@@ -15,6 +16,7 @@ export default createStore({
   actions: {
     loginUser({ commit }) {
       commit("SET_LOGGED_IN", true);
+      router.push("/admin/dashboard");
     },
     logoutUser({ commit }) {
       commit("SET_LOGGED_IN", false);
